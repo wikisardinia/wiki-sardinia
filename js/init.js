@@ -4,7 +4,15 @@
     $('.sidenav').sidenav();
     $('.parallax').parallax();
 	
-	$('.sidenav').sidenav();
+	$("a[href^='#']").click(function(e) {
+	e.preventDefault();
+	
+	var position = $($(this).attr("href")).offset().top;
+
+	$("body, html").animate({
+		scrollTop: position
+	} /* speed */ );
+});
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
